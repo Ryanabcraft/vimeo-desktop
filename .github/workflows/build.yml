@@ -18,7 +18,7 @@ jobs:
       - name: Install PyInstaller
         run: pip install pyinstaller
       - name: Build .exe
-        run: pyinstaller --onefile --windowed --name="Vimeo" --hidden-import=browser_launcher vimeo_app.py
+        run: pip install pillow; pyinstaller --onefile --windowed --icon=icon.ico --name="Vimeo" --hidden-import=browser_launcher vimeo_app.py
       - name: Prepare dist_py
         run: New-Item -ItemType Directory -Path dist_py -Force; Copy-Item dist/Vimeo.exe dist_py/Vimeo.exe
       - name: Install Inno Setup
